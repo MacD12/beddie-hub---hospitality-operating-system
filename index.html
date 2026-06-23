@@ -4,7 +4,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beddie Hub | Hospitality Excellence</title>
+    <title>Beddie Hub | Hospitality Operating System</title>
+    <meta name="description" content="The complete hospitality operating system for retreats, camps, and outdoor experiences — bookings, payments, operations, and growth in one platform." />
+    <meta name="theme-color" content="#10b981" />
+    <link rel="canonical" href="/" />
+    <meta property="og:site_name" content="Beddie Hub" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Beddie Hub | Hospitality Operating System" />
+    <meta property="og:description" content="The complete hospitality operating system for retreats, camps, and outdoor experiences." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Beddie Hub | Hospitality Operating System" />
+    <meta name="twitter:description" content="The complete hospitality operating system for retreats, camps, and outdoor experiences." />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,6 +111,9 @@
       .hero-fade-up { opacity: 0; animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
       .hero-float { animation: hero-float 6s ease-in-out infinite; }
       .hero-bar { transform-origin: bottom; animation: hero-grow 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      /* Route transition (opacity-only so it never affects position:fixed descendants) */
+      @keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+      .page-enter { animation: page-enter 0.35s ease-out; }
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
         *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }

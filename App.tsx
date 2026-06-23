@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
+import { BackToTop } from './components/BackToTop';
 import { RouterProvider, useRouter, Link, matchPath } from './components/router';
 import { ToastProvider } from './components/Toast';
 import { Home } from './pages/Home';
@@ -57,12 +58,33 @@ const Routes: React.FC = () => {
   }, [path, match]);
 
   const Page = match?.component ?? NotFound;
-  return <Page params={match?.params} />;
+  return (
+    <div key={path} className="page-enter">
+      <Page params={match?.params} />
+    </div>
+  );
 };
 
+const COOKIE_KEY = 'beddie-cookie-consent';
+
 const App: React.FC = () => {
-  const [showCookies, setShowCookies] = useState(true);
+  const [showCookies, setShowCookies] = useState(() => {
+    try {
+      return !localStorage.getItem(COOKIE_KEY);
+    } catch {
+      return true;
+    }
+  });
   const whatsappUrl = 'https://wa.me/1234567890';
+
+  const dismissCookies = (choice: 'accepted' | 'declined') => {
+    try {
+      localStorage.setItem(COOKIE_KEY, choice);
+    } catch {
+      /* ignore unavailable storage */
+    }
+    setShowCookies(false);
+  };
 
   return (
     <RouterProvider>
@@ -82,6 +104,8 @@ const App: React.FC = () => {
         </main>
 
         <Footer />
+
+        <BackToTop />
 
         {/* WhatsApp Widget */}
         <a
@@ -111,13 +135,13 @@ const App: React.FC = () => {
               </p>
               <div className="flex items-center gap-2 flex-shrink-0">
                 <button
-                  onClick={() => setShowCookies(false)}
+                  onClick={() => dismissCookies('declined')}
                   className="px-4 py-2 text-sm font-medium text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
                 >
                   Decline
                 </button>
                 <button
-                  onClick={() => setShowCookies(false)}
+                  onClick={() => dismissCookies('accepted')}
                   className="px-5 py-2 text-sm font-semibold text-white bg-[#2d2d2d] rounded-full hover:bg-black transition-colors"
                 >
                   Accept

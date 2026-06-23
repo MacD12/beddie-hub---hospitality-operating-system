@@ -52,7 +52,7 @@ export const ProcessTabs: React.FC = () => {
               <p.icon className="w-8 h-8" />
             </div>
 
-            <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">{p.title}</h3>
+            <h3 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 mb-4">{p.title}</h3>
             <p className="text-lg text-gray-600 leading-relaxed font-light mb-auto">{p.content}</p>
 
             <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700">
