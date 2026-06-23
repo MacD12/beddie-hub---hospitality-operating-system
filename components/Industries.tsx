@@ -12,7 +12,7 @@ export const Industries: React.FC = () => {
           <p className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 uppercase tracking-[0.2em] mb-4">
             <span className="w-6 h-px bg-emerald-500" /> Built for
           </p>
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6 leading-[1.1]">One platform for every <br className="hidden md:block" /> kind of experience.</h2>
+          <h2 className="text-5xl md:text-7xl font-semibold mb-6 leading-[1.05] tracking-tight">One platform for every <br className="hidden md:block" /> kind of experience.</h2>
           <p className="text-gray-500 text-lg max-w-lg leading-relaxed">From surf camps to mountain expeditions — Beddie Hub adapts to how you run, host, and grow.</p>
         </div>
         <Link to="/solutions" className="shine-btn w-full sm:w-auto bg-[#2d2d2d] text-white px-8 py-4 rounded-full font-medium flex items-center justify-center hover:bg-black hover:shadow-xl hover:shadow-emerald-900/10 hover:-translate-y-0.5 transition-all duration-300 group">

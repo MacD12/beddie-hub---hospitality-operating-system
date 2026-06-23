@@ -15,7 +15,7 @@ export const Testimonials: React.FC = () => {
   return (
     <section className="py-24 px-4 lg:px-6 max-w-[1600px] mx-auto">
       <div className="mb-16">
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] mb-4">Creating Extraordinary Value</h2>
+        <h2 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-4">Creating Extraordinary Value</h2>
         <p className="text-gray-500 max-w-3xl text-xl font-light">Transforming hospitality operations globally with intelligent automation.</p>
       </div>
 

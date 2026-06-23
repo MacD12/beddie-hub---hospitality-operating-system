@@ -23,7 +23,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({ eyebrow, title, subtitle
         <p className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 uppercase tracking-[0.2em] mb-4">
           <span className="w-6 h-px bg-emerald-500" /> {eyebrow}
         </p>
-        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] mb-6">{title}</h1>
+        <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-6">{title}</h1>
         {subtitle && <p className="text-lg md:text-2xl text-gray-600 font-light max-w-2xl leading-relaxed">{subtitle}</p>}
       </div>
     </div>

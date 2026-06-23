@@ -15,6 +15,20 @@ export interface Article {
   content: Block[];
 }
 
+/** Word count across all content blocks → "N min read" (≈200 wpm). */
+export function getReadingTime(content: Block[]): string {
+  const words = content.reduce((sum, block) => {
+    const text = block.type === 'ul' ? block.items.join(' ') : block.text;
+    return sum + text.trim().split(/\s+/).filter(Boolean).length;
+  }, 0);
+  return `${Math.max(1, Math.round(words / 200))} min read`;
+}
+
+/** Computed reading time, but preserves non-reading labels like "On demand". */
+export function readLabel(article: Article): string {
+  return article.readTime.toLowerCase().includes('min') ? getReadingTime(article.content) : article.readTime;
+}
+
 export const articles: Article[] = [
   {
     slug: '2026-playbook-fully-booked-seasons',

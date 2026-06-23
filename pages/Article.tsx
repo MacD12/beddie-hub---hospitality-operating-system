@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { ArrowLeft, ArrowRight, Clock, Share2 } from 'lucide-react';
 import { Reveal } from '../components/Reveal';
 import { FinalCTA } from '../components/FinalCTA';
 import { Link } from '../components/router';
 import { Breadcrumbs } from '../components/Breadcrumbs';
+import { ArticleProgress } from '../components/ArticleProgress';
 import { useToast } from '../components/Toast';
-import { articles, type Block } from '../components/articles';
+import { articles, readLabel, type Block } from '../components/articles';
 
 const renderBlock = (block: Block, i: number) => {
   switch (block.type) {
@@ -35,13 +36,14 @@ const renderBlock = (block: Block, i: number) => {
 
 export const Article: React.FC<{ params?: Record<string, string> }> = ({ params }) => {
   const toast = useToast();
+  const articleRef = useRef<HTMLElement>(null);
   const article = articles.find((a) => a.slug === params?.slug);
 
   if (!article) {
     return (
       <section className="pt-44 pb-32 px-4 lg:px-6 max-w-[1600px] mx-auto text-center">
         <p className="text-sm font-semibold text-emerald-700 uppercase tracking-[0.2em] mb-4">404</p>
-        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6">Article not found.</h1>
+        <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">Article not found.</h1>
         <Link to="/resources" className="inline-flex items-center bg-[#2d2d2d] text-white px-8 py-4 rounded-full font-medium hover:bg-black transition-colors">
           <ArrowLeft className="mr-2 w-5 h-5" /> Back to resources
         </Link>
@@ -65,7 +67,8 @@ export const Article: React.FC<{ params?: Record<string, string> }> = ({ params 
 
   return (
     <>
-      <article className="pt-32 md:pt-40 pb-10 px-4 lg:px-6 max-w-3xl mx-auto">
+      <ArticleProgress targetRef={articleRef} />
+      <article ref={articleRef} className="pt-32 md:pt-40 pb-10 px-4 lg:px-6 max-w-3xl mx-auto">
         <Breadcrumbs
           items={[{ label: 'Home', to: '/' }, { label: 'Resources', to: '/resources' }, { label: article.tag, to: `/resources?type=${encodeURIComponent(article.tag)}` }, { label: article.title }]}
           className="mb-8"
@@ -75,7 +78,7 @@ export const Article: React.FC<{ params?: Record<string, string> }> = ({ params 
         </Link>
 
         <span className="inline-flex items-center text-xs font-bold uppercase tracking-wide bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full mb-6">{article.tag}</span>
-        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] mb-6">{article.title}</h1>
+        <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-6">{article.title}</h1>
         <p className="text-xl text-gray-500 leading-relaxed mb-8">{article.excerpt}</p>
 
         <div className="flex items-center gap-4 pb-8 border-b border-gray-100">
@@ -86,7 +89,7 @@ export const Article: React.FC<{ params?: Record<string, string> }> = ({ params 
             <p className="font-semibold text-gray-900">{article.author}</p>
             <p className="text-gray-500 flex items-center gap-2">
               {article.date} <span className="w-1 h-1 rounded-full bg-gray-300" />
-              <span className="inline-flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {article.readTime}</span>
+              <span className="inline-flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {readLabel(article)}</span>
             </p>
           </div>
           <button
@@ -139,7 +142,7 @@ export const Article: React.FC<{ params?: Record<string, string> }> = ({ params 
                   <span className="inline-flex w-fit items-center text-xs font-bold uppercase tracking-wide bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full mb-6">{post.tag}</span>
                   <h3 className="text-2xl font-semibold leading-snug mb-auto group-hover:text-emerald-800 transition-colors">{post.title}</h3>
                   <div className="flex items-center justify-between mt-8 text-sm text-gray-500">
-                    <span>{post.readTime}</span>
+                    <span>{readLabel(post)}</span>
                     <ArrowRight className="w-5 h-5 text-gray-900 group-hover:translate-x-1 group-hover:text-emerald-700 transition-all" />
                   </div>
                 </Link>

@@ -6,7 +6,7 @@ import { Reveal } from '../components/Reveal';
 import { FinalCTA } from '../components/FinalCTA';
 import { Link, useRouter, useSearchParams } from '../components/router';
 import { resourceItems } from '../components/siteData';
-import { articles } from '../components/articles';
+import { articles, readLabel } from '../components/articles';
 
 export const Resources: React.FC = () => {
   const { setParam } = useRouter();
@@ -116,7 +116,7 @@ export const Resources: React.FC = () => {
                   <h3 className="text-2xl font-semibold leading-snug mb-3 group-hover:text-emerald-800 transition-colors">{post.title}</h3>
                   <p className="text-sm text-gray-600 leading-relaxed mb-auto line-clamp-2">{post.excerpt}</p>
                   <div className="flex items-center justify-between mt-8 text-sm text-gray-500">
-                    <span>{post.readTime}</span>
+                    <span>{readLabel(post)}</span>
                     <ArrowRight className="w-5 h-5 text-gray-900 group-hover:translate-x-1 group-hover:text-emerald-700 transition-all" />
                   </div>
                 </Link>

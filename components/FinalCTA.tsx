@@ -16,12 +16,12 @@ export const FinalCTA: React.FC = () => {
           style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '28px 28px', maskImage: 'radial-gradient(ellipse 70% 70% at 72% 42%, black, transparent 78%)', WebkitMaskImage: 'radial-gradient(ellipse 70% 70% at 72% 42%, black, transparent 78%)' }}
         />
 
-        <div className="max-w-2xl relative z-10">
+        <div className="max-w-3xl relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 text-sm font-medium text-emerald-300">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             Get started in minutes
           </div>
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] mb-8">
+          <h2 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-8">
             Ready to Transform Your Hospitality Infrastructure?
           </h2>
           <p className="text-xl text-gray-400 mb-12">Discover how Beddie Hub can revolutionize your operations with a personalized walk-through.</p>

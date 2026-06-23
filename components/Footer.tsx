@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
       {/* Closing row */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 py-14">
         <div className="space-y-8">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
+          <h2 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05]">
             Experience <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent">Excellence.</span>
           </h2>
           <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-gray-500 font-medium">
