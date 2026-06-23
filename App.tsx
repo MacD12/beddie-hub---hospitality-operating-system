@@ -14,20 +14,22 @@ import { Article } from './pages/Article';
 import { About } from './pages/About';
 import { Careers } from './pages/Careers';
 import { Contact } from './pages/Contact';
+import { articles } from './components/articles';
+import { applySeo, setStructuredData } from './components/seo';
 import { MessageCircle } from 'lucide-react';
 
 type PageComponent = React.FC<{ params?: Record<string, string> }>;
 
-const routes: { path: string; component: PageComponent; title: string }[] = [
-  { path: '/', component: Home, title: 'Hospitality Operating System' },
-  { path: '/platform', component: Platform, title: 'Platform' },
-  { path: '/solutions', component: Solutions, title: 'Built for' },
-  { path: '/pricing', component: Pricing, title: 'Pricing' },
-  { path: '/resources', component: Resources, title: 'Resources' },
-  { path: '/resources/:slug', component: Article, title: 'Resources' },
-  { path: '/about', component: About, title: 'About' },
-  { path: '/careers', component: Careers, title: 'Careers' },
-  { path: '/contact', component: Contact, title: 'Contact' },
+const routes: { path: string; component: PageComponent; title: string; description: string }[] = [
+  { path: '/', component: Home, title: 'Hospitality Operating System', description: 'The complete hospitality operating system for retreats, camps, and outdoor experiences — bookings, payments, operations, and growth in one platform.' },
+  { path: '/platform', component: Platform, title: 'Platform', description: 'One connected platform — PMS, payments, channel manager, booking engine, marketing, and revenue intelligence.' },
+  { path: '/solutions', component: Solutions, title: 'Built for', description: 'Built for retreats, surf camps, mountain guiding, glamping, wave parks, and more. One platform for every kind of experience.' },
+  { path: '/pricing', component: Pricing, title: 'Pricing', description: 'Simple, commission-free pricing that scales with you. Start free, upgrade when you are ready.' },
+  { path: '/resources', component: Resources, title: 'Resources', description: 'Playbooks, product updates, customer stories, and webinars to help you run a better operation.' },
+  { path: '/resources/:slug', component: Article, title: 'Resources', description: 'Insights, guides, and stories from Beddie Hub.' },
+  { path: '/about', component: About, title: 'About', description: 'We are building the operating system for unforgettable experiences. Meet the team behind Beddie Hub.' },
+  { path: '/careers', component: Careers, title: 'Careers', description: 'Help shape the future of hospitality. Remote-first roles at Beddie Hub.' },
+  { path: '/contact', component: Contact, title: 'Contact', description: 'Book a personalized walk-through or ask us anything. We usually reply within one business day.' },
 ];
 
 const NotFound: PageComponent = () => (
@@ -44,17 +46,53 @@ const NotFound: PageComponent = () => (
 const Routes: React.FC = () => {
   const { path } = useRouter();
 
-  let match: { component: PageComponent; params: Record<string, string>; title: string } | null = null;
+  let match: { component: PageComponent; params: Record<string, string>; title: string; description: string } | null = null;
   for (const r of routes) {
     const params = matchPath(r.path, path);
     if (params) {
-      match = { component: r.component, params, title: r.title };
+      match = { component: r.component, params, title: r.title, description: r.description };
       break;
     }
   }
 
   useEffect(() => {
-    document.title = match ? `${match.title} | Beddie Hub` : 'Page not found | Beddie Hub';
+    if (!match) {
+      applySeo({ title: 'Page not found', description: "The page you're looking for doesn't exist or has moved." });
+      return;
+    }
+    // Articles override the generic route title/description with their own.
+    const article = match.params.slug ? articles.find((a) => a.slug === match.params.slug) : undefined;
+    applySeo({
+      title: article ? article.title : match.title,
+      description: article ? article.excerpt : match.description,
+    });
+
+    if (article) {
+      const origin = window.location.origin;
+      setStructuredData([
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: article.title,
+          description: article.excerpt,
+          author: { '@type': 'Person', name: article.author },
+          publisher: { '@type': 'Organization', name: 'Beddie Hub' },
+          articleSection: article.tag,
+          mainEntityOfPage: window.location.href,
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+            { '@type': 'ListItem', position: 2, name: 'Resources', item: `${origin}/resources` },
+            { '@type': 'ListItem', position: 3, name: article.title, item: window.location.href },
+          ],
+        },
+      ]);
+    } else {
+      setStructuredData(null);
+    }
   }, [path, match]);
 
   const Page = match?.component ?? NotFound;
