@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 
 /** Thin gradient bar at the very top showing read progress through the page. */

@@ -1,9 +1,0 @@
-{
-  "name": "Beddie Hub - Hospitality Operating System",
-  "description": "The fastest-growing hospitality operating system transforming property management worldwide. Intelligent solutions for hotels, restaurants, and cafes.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ],
-  "majorCapabilities": []
-}
