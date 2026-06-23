@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
         <span className="text-sm font-medium tracking-tight">The complete Hospitality Operating System</span>
       </div>
 
-      <h1 className="hero-fade-up text-5xl md:text-7xl font-semibold tracking-tight mb-10 md:mb-12 leading-[1.1]" style={{ animationDelay: '0.15s' }}>
+      <h1 className="hero-fade-up text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight mb-10 md:mb-12 leading-[1.1]" style={{ animationDelay: '0.15s' }}>
         Operate Smarter with <br className="hidden md:block" />
         <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
           Hospitality Excellence.

@@ -31,7 +31,7 @@ export const ProcessTabs: React.FC = () => {
         <p className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 uppercase tracking-[0.2em] mb-4">
           <span className="w-6 h-px bg-emerald-500" /> Why choose us
         </p>
-        <h2 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 leading-[1.05]">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight mb-6 leading-[1.05]">
           Process. Platform. People.
         </h2>
         <p className="text-2xl md:text-3xl text-gray-400 font-light leading-tight">

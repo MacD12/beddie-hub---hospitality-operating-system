@@ -56,7 +56,7 @@ export const ServiceAccordion: React.FC = () => {
         <p className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 uppercase tracking-[0.2em] mb-4">
           <span className="w-6 h-px bg-emerald-500" /> Services
         </p>
-        <h2 className="text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tight">Tailor-made services for every part of your operation</h2>
+        <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tight">Tailor-made services for every part of your operation</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

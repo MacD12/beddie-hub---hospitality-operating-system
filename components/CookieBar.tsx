@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { setCookieBarVisible } from './cookieBus';
 
 const COOKIE_KEY = 'beddle-cookie-consent';
 
@@ -9,11 +10,15 @@ export const CookieBar: React.FC = () => {
 
   // Decide on the client after mount to avoid SSR/localStorage hydration mismatch.
   useEffect(() => {
+    let needed = true;
     try {
-      if (!localStorage.getItem(COOKIE_KEY)) setShow(true);
+      needed = !localStorage.getItem(COOKIE_KEY);
     } catch {
-      setShow(true);
+      needed = true;
     }
+    setShow(needed);
+    setCookieBarVisible(needed);
+    return () => setCookieBarVisible(false);
   }, []);
 
   const dismiss = (choice: 'accepted' | 'declined') => {
@@ -23,6 +28,7 @@ export const CookieBar: React.FC = () => {
       /* storage unavailable */
     }
     setShow(false);
+    setCookieBarVisible(false);
   };
 
   if (!show) return null;

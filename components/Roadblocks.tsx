@@ -45,7 +45,7 @@ const stats = [
 export const Roadblocks: React.FC = () => {
   return (
     <section className="py-20 md:py-32 px-4 lg:px-6 max-w-[1600px] mx-auto">
-      <h2 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-16 md:mb-20">
+      <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-16 md:mb-20">
         Secure, Streamline, and Succeed <br className="hidden md:block" /> with Confidence.
       </h2>
 

@@ -45,7 +45,7 @@ export const Article: React.FC<{ slug: string }> = ({ slug }) => {
     return (
       <section className="pt-44 pb-32 px-4 lg:px-6 max-w-[1600px] mx-auto text-center">
         <p className="text-sm font-semibold text-emerald-700 uppercase tracking-[0.2em] mb-4">404</p>
-        <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">Article not found.</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight mb-6">Article not found.</h1>
         <Link to="/resources" className="inline-flex items-center bg-[#2d2d2d] text-white px-8 py-4 rounded-full font-medium hover:bg-black transition-colors">
           <ArrowLeft className="mr-2 w-5 h-5" /> Back to resources
         </Link>
@@ -80,7 +80,7 @@ export const Article: React.FC<{ slug: string }> = ({ slug }) => {
         </Link>
 
         <span className="inline-flex items-center text-xs font-bold uppercase tracking-wide bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full mb-6">{article.tag}</span>
-        <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-6">{article.title}</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-6">{article.title}</h1>
         <p className="text-xl text-gray-500 leading-relaxed mb-8">{article.excerpt}</p>
 
         <div className="flex items-center gap-4 pb-8 border-b border-gray-100">
