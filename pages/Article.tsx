@@ -1,8 +1,10 @@
 import React from 'react';
-import { ArrowLeft, ArrowRight, Clock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, Share2 } from 'lucide-react';
 import { Reveal } from '../components/Reveal';
 import { FinalCTA } from '../components/FinalCTA';
 import { Link } from '../components/router';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { useToast } from '../components/Toast';
 import { articles, type Block } from '../components/articles';
 
 const renderBlock = (block: Block, i: number) => {
@@ -32,6 +34,7 @@ const renderBlock = (block: Block, i: number) => {
 };
 
 export const Article: React.FC<{ params?: Record<string, string> }> = ({ params }) => {
+  const toast = useToast();
   const article = articles.find((a) => a.slug === params?.slug);
 
   if (!article) {
@@ -47,10 +50,26 @@ export const Article: React.FC<{ params?: Record<string, string> }> = ({ params 
   }
 
   const related = articles.filter((a) => a.slug !== article.slug).slice(0, 2);
+  const index = articles.findIndex((a) => a.slug === article.slug);
+  const prev = articles[index - 1];
+  const next = articles[index + 1];
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      toast('Link copied to clipboard!');
+    } catch {
+      toast('Press Ctrl+C to copy the link');
+    }
+  };
 
   return (
     <>
       <article className="pt-32 md:pt-40 pb-10 px-4 lg:px-6 max-w-3xl mx-auto">
+        <Breadcrumbs
+          items={[{ label: 'Home', to: '/' }, { label: 'Resources', to: '/resources' }, { label: article.tag, to: `/resources?type=${encodeURIComponent(article.tag)}` }, { label: article.title }]}
+          className="mb-8"
+        />
         <Link to="/resources" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-emerald-700 transition-colors mb-8 group">
           <ArrowLeft className="mr-2 w-4 h-4 group-hover:-translate-x-1 transition-transform" /> All resources
         </Link>
@@ -70,10 +89,41 @@ export const Article: React.FC<{ params?: Record<string, string> }> = ({ params 
               <span className="inline-flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {article.readTime}</span>
             </p>
           </div>
+          <button
+            onClick={copyLink}
+            className="ml-auto inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-emerald-700 border border-gray-200 hover:border-emerald-200 hover:bg-emerald-50/50 rounded-full px-4 py-2 transition-colors"
+          >
+            <Share2 className="w-4 h-4" /> <span className="hidden sm:inline">Copy link</span>
+          </button>
         </div>
 
         <div className="mt-2">{article.content.map(renderBlock)}</div>
       </article>
+
+      {(prev || next) && (
+        <nav aria-label="Article navigation" className="max-w-3xl mx-auto px-4 lg:px-6 mt-12 pt-8 border-t border-gray-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {prev ? (
+              <Link to={`/resources/${prev.slug}`} className="group bg-[#f5f5f5] rounded-2xl p-6 hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-lg hover:shadow-gray-200/50 transition-all duration-300">
+                <span className="inline-flex items-center text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                  <ArrowLeft className="w-3.5 h-3.5 mr-1.5 group-hover:-translate-x-1 transition-transform" /> Previous
+                </span>
+                <p className="font-semibold text-gray-900 leading-snug group-hover:text-emerald-800 transition-colors">{prev.title}</p>
+              </Link>
+            ) : (
+              <span className="hidden sm:block" />
+            )}
+            {next && (
+              <Link to={`/resources/${next.slug}`} className="group bg-[#f5f5f5] rounded-2xl p-6 sm:text-right hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-lg hover:shadow-gray-200/50 transition-all duration-300">
+                <span className="inline-flex items-center text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 sm:justify-end sm:w-full">
+                  Next <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <p className="font-semibold text-gray-900 leading-snug group-hover:text-emerald-800 transition-colors">{next.title}</p>
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
 
       {related.length > 0 && (
         <Reveal>

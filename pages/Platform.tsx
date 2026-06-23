@@ -13,6 +13,7 @@ export const Platform: React.FC = () => (
       eyebrow="Platform"
       title={<>Everything you need to <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent">run and grow</span>.</>}
       subtitle="One connected platform — PMS, payments, distribution, marketing and intelligence — so every part of your operation works as one."
+      crumbs={[{ label: 'Home', to: '/' }, { label: 'Platform' }]}
     />
 
     <Reveal>

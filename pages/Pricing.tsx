@@ -48,6 +48,7 @@ export const Pricing: React.FC = () => {
         eyebrow="Pricing"
         title="Simple pricing that scales with you."
         subtitle="Commission-free direct bookings on every plan. Start free, upgrade when you're ready."
+        crumbs={[{ label: 'Home', to: '/' }, { label: 'Pricing' }]}
       />
 
       <Reveal>

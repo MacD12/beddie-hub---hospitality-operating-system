@@ -28,6 +28,7 @@ export const Careers: React.FC = () => (
       eyebrow="Careers"
       title="Help shape the future of hospitality."
       subtitle="We're a small, senior, remote-first team building software that operators genuinely love. Come build it with us."
+      crumbs={[{ label: 'Home', to: '/' }, { label: 'Careers' }]}
     />
 
     <Reveal>

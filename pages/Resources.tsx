@@ -53,6 +53,7 @@ export const Resources: React.FC = () => {
         eyebrow="Resources"
         title="Learn, grow, and get inspired."
         subtitle="Playbooks, product updates, customer stories and live sessions to help you run a better operation."
+        crumbs={[{ label: 'Home', to: '/' }, { label: 'Resources' }]}
       />
 
       <Reveal>

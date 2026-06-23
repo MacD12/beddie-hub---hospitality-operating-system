@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
 import { RouterProvider, useRouter, Link, matchPath } from './components/router';
+import { ToastProvider } from './components/Toast';
 import { Home } from './pages/Home';
 import { Platform } from './pages/Platform';
 import { Solutions } from './pages/Solutions';
@@ -65,6 +66,7 @@ const App: React.FC = () => {
 
   return (
     <RouterProvider>
+      <ToastProvider>
       <div className="min-h-screen bg-white relative selection:bg-emerald-100 selection:text-emerald-900">
         <a
           href="#main"
@@ -125,6 +127,7 @@ const App: React.FC = () => {
           </div>
         )}
       </div>
+      </ToastProvider>
     </RouterProvider>
   );
 };

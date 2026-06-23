@@ -3,6 +3,7 @@ import React from 'react';
 import { ArrowRight, Mail } from 'lucide-react';
 import { builtForItems, platformItems, featureItems, resourceItems, companyLinks } from './siteData';
 import { Link } from './router';
+import { useToast } from './Toast';
 
 interface FooterLink { label: string; to: string }
 
@@ -38,6 +39,7 @@ const socials = [
 ];
 
 export const Footer: React.FC = () => {
+  const toast = useToast();
   return (
     <footer className="pt-12 pb-12 px-4 lg:px-6 max-w-[1600px] mx-auto">
       {/* Newsletter band */}
@@ -47,7 +49,14 @@ export const Footer: React.FC = () => {
           <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">Stay ahead of the season.</h3>
           <p className="text-gray-600 max-w-md">Product updates, operator playbooks, and growth tips — straight to your inbox. No spam.</p>
         </div>
-        <form className="relative z-10 flex w-full lg:w-auto max-w-md" onSubmit={(e) => e.preventDefault()}>
+        <form
+          className="relative z-10 flex w-full lg:w-auto max-w-md"
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.currentTarget.reset();
+            toast("You're subscribed — welcome aboard!");
+          }}
+        >
           <div className="relative flex-1">
             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input

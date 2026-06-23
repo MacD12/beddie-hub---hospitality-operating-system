@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { PageHeader } from '../components/PageHeader';
 import { Reveal } from '../components/Reveal';
+import { useToast } from '../components/Toast';
 
 const infoCards = [
   { icon: Mail, label: 'Email us', value: 'hello@beddiehub.com' },
@@ -14,6 +15,7 @@ const fieldClass =
 
 export const Contact: React.FC = () => {
   const [sent, setSent] = useState(false);
+  const toast = useToast();
 
   return (
     <>
@@ -21,6 +23,7 @@ export const Contact: React.FC = () => {
         eyebrow="Contact"
         title="Let's talk."
         subtitle="Book a personalized walk-through or ask us anything. We usually reply within one business day."
+        crumbs={[{ label: 'Home', to: '/' }, { label: 'Contact' }]}
       />
 
       <Reveal>
@@ -39,6 +42,7 @@ export const Contact: React.FC = () => {
                   onSubmit={(e) => {
                     e.preventDefault();
                     setSent(true);
+                    toast("Message sent — we'll be in touch within one business day!");
                   }}
                   className="space-y-5"
                 >
