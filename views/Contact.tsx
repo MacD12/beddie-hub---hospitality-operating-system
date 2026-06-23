@@ -7,7 +7,7 @@ import { Reveal } from '../components/Reveal';
 import { useToast } from '../components/Toast';
 
 const infoCards = [
-  { icon: Mail, label: 'Email us', value: 'hello@beddiehub.com' },
+  { icon: Mail, label: 'Email us', value: 'hello@beddlehub.com' },
   { icon: Phone, label: 'Call us', value: '866.PICK.ITS' },
   { icon: Clock, label: 'Support', value: '24/7 for all customers' },
 ];
@@ -98,7 +98,7 @@ export const Contact: React.FC = () => {
                   </span>
                   All systems operational
                 </div>
-                <p className="text-sm text-gray-600">Join 500+ properties already running on Beddie Hub.</p>
+                <p className="text-sm text-gray-600">Join 500+ properties already running on Beddle Hub.</p>
               </div>
             </div>
           </div>

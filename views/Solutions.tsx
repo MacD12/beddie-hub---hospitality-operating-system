@@ -12,7 +12,7 @@ export const Solutions: React.FC = () => (
     <PageHeader
       eyebrow="Built for"
       title="One platform for every kind of experience."
-      subtitle="From surf camps to mountain expeditions, retreats to wave parks — Beddie Hub adapts to how you host, run, and grow."
+      subtitle="From surf camps to mountain expeditions, retreats to wave parks — Beddle Hub adapts to how you host, run, and grow."
       crumbs={[{ label: 'Home', to: '/' }, { label: 'Solutions' }]}
     />
 

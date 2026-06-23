@@ -16,24 +16,24 @@ const DESCRIPTION =
   'The complete hospitality operating system for retreats, camps, and outdoor experiences — bookings, payments, operations, and growth in one platform.';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.beddiehub.com'),
+  metadataBase: new URL('https://www.beddlehub.com'),
   title: {
-    default: 'Beddie Hub | Hospitality Operating System',
-    template: '%s | Beddie Hub',
+    default: 'Beddle Hub | Hospitality Operating System',
+    template: '%s | Beddle Hub',
   },
   description: DESCRIPTION,
-  applicationName: 'Beddie Hub',
+  applicationName: 'Beddle Hub',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
-    siteName: 'Beddie Hub',
-    title: 'Beddie Hub | Hospitality Operating System',
+    siteName: 'Beddle Hub',
+    title: 'Beddle Hub | Hospitality Operating System',
     description: DESCRIPTION,
     url: '/',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Beddie Hub | Hospitality Operating System',
+    title: 'Beddle Hub | Hospitality Operating System',
     description: DESCRIPTION,
   },
 };
@@ -47,12 +47,12 @@ const orgJsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      name: 'Beddie Hub',
+      name: 'Beddle Hub',
       description: 'The hospitality operating system for retreats, camps, and outdoor experiences worldwide.',
-      url: 'https://www.beddiehub.com/',
-      sameAs: ['https://twitter.com/beddiehub', 'https://www.linkedin.com/company/beddiehub'],
+      url: 'https://www.beddlehub.com/',
+      sameAs: ['https://twitter.com/beddlehub', 'https://www.linkedin.com/company/beddlehub'],
     },
-    { '@type': 'WebSite', name: 'Beddie Hub', url: 'https://www.beddiehub.com/' },
+    { '@type': 'WebSite', name: 'Beddle Hub', url: 'https://www.beddlehub.com/' },
   ],
 };
 

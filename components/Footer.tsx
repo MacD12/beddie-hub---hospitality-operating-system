@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
       {/* Brand + link columns */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8 pb-16 border-b border-gray-100">
         <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-          <Link to="/" className="inline-block text-2xl font-bold mb-5 tracking-tight hover:text-emerald-700 transition-colors">Beddie Hub</Link>
+          <Link to="/" className="inline-block text-2xl font-bold mb-5 tracking-tight hover:text-emerald-700 transition-colors">Beddle Hub</Link>
           <p className="text-[15px] text-gray-500 leading-relaxed max-w-xs mb-6">
             The hospitality operating system for retreats, camps, and outdoor experiences worldwide.
           </p>
@@ -124,7 +124,7 @@ export const Footer: React.FC = () => {
             </span>
             All Systems Operational
           </div>
-          <div className="text-left lg:text-right">© 2026 Beddie Hub. All rights reserved.</div>
+          <div className="text-left lg:text-right">© 2026 Beddle Hub. All rights reserved.</div>
         </div>
       </div>
     </footer>

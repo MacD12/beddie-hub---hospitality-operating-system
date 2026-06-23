@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { articles } from '@/components/articles';
 
-const SITE = 'https://www.beddiehub.com';
+const SITE = 'https://www.beddlehub.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ['', '/platform', '/solutions', '/pricing', '/resources', '/about', '/careers', '/contact'].map(

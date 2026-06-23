@@ -24,7 +24,7 @@ export const About: React.FC = () => (
     <PageHeader
       eyebrow="About"
       title={<>We're building the operating system for <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent">unforgettable experiences</span>.</>}
-      subtitle="Beddie Hub started with a simple belief: the people who create the world's best stays and adventures deserve software that works as hard as they do."
+      subtitle="Beddle Hub started with a simple belief: the people who create the world's best stays and adventures deserve software that works as hard as they do."
       crumbs={[{ label: 'Home', to: '/' }, { label: 'About' }]}
     />
 

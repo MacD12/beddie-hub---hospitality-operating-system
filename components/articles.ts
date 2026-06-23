@@ -111,7 +111,7 @@ export const articles: Article[] = [
     tag: 'Product News',
     title: 'Introducing the new Application Form',
     excerpt: 'Collect rich applicant details for retreats, courses, and clinics — and turn them into bookings without the back-and-forth.',
-    author: 'The Beddie Hub Team',
+    author: 'The Beddle Hub Team',
     date: 'Jun 2026',
     readTime: '3 min read',
     content: [

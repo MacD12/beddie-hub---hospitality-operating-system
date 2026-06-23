@@ -61,7 +61,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex-shrink-0 flex items-center group">
-            <span className="text-2xl font-bold tracking-tight text-gray-900 transition-colors group-hover:text-emerald-700">Beddie Hub</span>
+            <span className="text-2xl font-bold tracking-tight text-gray-900 transition-colors group-hover:text-emerald-700">Beddle Hub</span>
           </Link>
 
           <div className="hidden lg:flex items-center space-x-1">
@@ -122,7 +122,7 @@ export const Navbar: React.FC = () => {
               </div>
               <div className="hidden xl:flex flex-col justify-between w-64 flex-shrink-0 rounded-2xl bg-gradient-to-br from-[#d9f1e6] via-[#e7f0ed] to-[#d8eadd] p-6">
                 <div>
-                  <p className="text-base font-semibold text-gray-900 mb-1">{active.cta?.title ?? 'See Beddie Hub in action'}</p>
+                  <p className="text-base font-semibold text-gray-900 mb-1">{active.cta?.title ?? 'See Beddle Hub in action'}</p>
                   <p className="text-sm text-gray-600 leading-snug">Book a personalized walk-through with our team.</p>
                 </div>
                 <Link to="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-emerald-800 group">

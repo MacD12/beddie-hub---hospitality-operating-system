@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-const COOKIE_KEY = 'beddie-cookie-consent';
+const COOKIE_KEY = 'beddle-cookie-consent';
 
 export const CookieBar: React.FC = () => {
   const [show, setShow] = useState(false);

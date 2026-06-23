@@ -24,7 +24,7 @@ export const FinalCTA: React.FC = () => {
           <h2 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-8">
             Ready to Transform Your Hospitality Infrastructure?
           </h2>
-          <p className="text-xl text-gray-400 mb-12">Discover how Beddie Hub can revolutionize your operations with a personalized walk-through.</p>
+          <p className="text-xl text-gray-400 mb-12">Discover how Beddle Hub can revolutionize your operations with a personalized walk-through.</p>
           <div className="flex flex-wrap gap-4">
             <Link to="/contact" className="shine-btn bg-emerald-500 text-white px-8 py-4 rounded-full font-medium flex items-center hover:bg-emerald-400 hover:shadow-xl hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all duration-300 group">
               Book Your Demo <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

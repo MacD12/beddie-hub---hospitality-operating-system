@@ -28,7 +28,7 @@ export const Testimonials: React.FC = () => {
               {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
             </div>
             <p className="text-2xl leading-relaxed text-gray-800 font-medium mb-8 relative z-10">
-              "Beddie Hub empowers businesses to achieve operational excellence while simultaneously elevating guest satisfaction. Our platform eliminates tedious manual processes and provides complete real-time visibility."
+              "Beddle Hub empowers businesses to achieve operational excellence while simultaneously elevating guest satisfaction. Our platform eliminates tedious manual processes and provides complete real-time visibility."
             </p>
             <div className="relative z-10">
               <p className="font-bold text-gray-900 text-lg">Average Results Achieved</p>

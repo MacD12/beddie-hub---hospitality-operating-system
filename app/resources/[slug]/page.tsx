@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { articles } from '@/components/articles';
 import { Article } from '@/views/Article';
 
-const SITE = 'https://www.beddiehub.com';
+const SITE = 'https://www.beddlehub.com';
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       headline: article.title,
       description: article.excerpt,
       author: { '@type': 'Person', name: article.author },
-      publisher: { '@type': 'Organization', name: 'Beddie Hub' },
+      publisher: { '@type': 'Organization', name: 'Beddle Hub' },
       articleSection: article.tag,
       mainEntityOfPage: url,
     },

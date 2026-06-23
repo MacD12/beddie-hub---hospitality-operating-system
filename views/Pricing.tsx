@@ -37,7 +37,7 @@ const tiers = [
 const faqs = [
   { q: 'Is there a free trial?', a: 'Yes — every plan starts with a 14-day free trial. No credit card required to get going.' },
   { q: 'Can I switch plans later?', a: 'Absolutely. Upgrade or downgrade at any time; changes are prorated automatically.' },
-  { q: 'Do you charge booking commissions?', a: 'No. Direct bookings through Beddie Hub are commission-free — you keep your revenue.' },
+  { q: 'Do you charge booking commissions?', a: 'No. Direct bookings through Beddle Hub are commission-free — you keep your revenue.' },
   { q: 'What support is included?', a: 'All plans include email support; Growth adds priority support and Enterprise adds 24/7 with a dedicated manager.' },
 ];
 

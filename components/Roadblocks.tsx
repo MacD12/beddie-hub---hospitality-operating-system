@@ -53,7 +53,7 @@ export const Roadblocks: React.FC = () => {
         {/* Left Column: Call to Action */}
         <div className="lg:sticky lg:top-32 space-y-8">
           <p className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 uppercase tracking-[0.2em]">
-            <span className="w-6 h-px bg-emerald-500" /> Why Beddie Hub
+            <span className="w-6 h-px bg-emerald-500" /> Why Beddle Hub
           </p>
           <h3 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.15] text-gray-900">
             Eliminate tedium with <span className="bg-gradient-to-r from-emerald-700 to-teal-600 bg-clip-text text-transparent">scalable, secure</span> solutions.
